@@ -4,6 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/codehacking/gulpfile.js</file>
+            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Controllers/AdminUsersController.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/composer.json</file>
+            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Requests/UsersRequest.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/app/Http/routes.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/users/create.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/config/app.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/users/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/database/migrations/2018_01_06_100911_add_photo_id_to_users.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Requests/Request.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/layouts/admin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/includes/form_error.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/assets/sass/app.scss</file>
         </group>
     </open-files>
 </project-private>
