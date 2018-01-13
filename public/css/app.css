@@ -1,4 +1,16 @@
 #admin-page {
   padding-top: 0; }
+body {
+    font-family: 'Lato';
+}
 
+.fa-btn {
+    margin-right: 6px;
+}
+.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #e9ecef;
+}
 /*# sourceMappingURL=app.css.map */

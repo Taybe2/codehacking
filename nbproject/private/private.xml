@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/codehacking/app/Photo.php</file>
             <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/users/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Requests/UsersEditRequest.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Controllers/AdminUsersController.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/users/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/app/Http/Requests/UsersRequest.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/home.blade.php</file>
             <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/codehacking/resources/views/welcome.blade.php</file>
             <file>file:/C:/xampp/htdocs/codehacking/resources/views/layouts/app.blade.php</file>
             <file>file:/C:/xampp/htdocs/codehacking/resources/views/layouts/admin.blade.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/app/Http/routes.php</file>
-            <file>file:/C:/xampp/htdocs/codehacking/resources/views/admin/users/create.blade.php</file>
         </group>
     </open-files>
 </project-private>
