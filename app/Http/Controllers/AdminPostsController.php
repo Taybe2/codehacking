@@ -10,6 +10,7 @@ use App\Post;
 use Auth;
 use App\Photo;
 use App\Category;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -21,6 +22,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
+        
         $posts = Post::all();
         
         return view('admin.posts.index', compact('posts'));
@@ -67,6 +69,10 @@ class AdminPostsController extends Controller
         
         $user->posts()->create($input);
         
+        $message = 'Post "'.$input['title'].'" has been created.';
+        
+        Session::flash('created_post', $message);
+        
         return redirect('/admin/posts');
         
     }
@@ -91,6 +97,11 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+        
+        $categories = Category::lists('name','id')->all();
+        
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -103,6 +114,27 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = $request->all();
+        
+        if($file = $request->file('photo_id')){
+            
+            $name = time() . $file->getClientOriginalName();
+            
+            $file->move('images', $name);
+            
+            $photo = Photo::create(['file'=>$name]);
+            
+            $input['photo_id'] = $photo->id;
+            
+        }
+        
+        $message = 'Post "'.Auth::user()->posts()->whereId($id)->first()->title.'" has been updated.';
+        
+        Session::flash('updated_post', $message);
+        
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+        
+        return redirect('/admin/posts');
     }
 
     /**
@@ -114,5 +146,16 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+        
+        if($post->photo_id != '') {unlink(public_path().$post->photo->file);}
+        
+        $message = 'Post "'.$post->title.'" has been deleted.';
+        
+        Session::flash('deleted_post', $message);
+        
+        $post->delete();
+        
+        return redirect('/admin/posts');
     }
 }
