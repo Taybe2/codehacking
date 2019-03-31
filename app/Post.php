@@ -4,15 +4,36 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+
+
 class Post extends Model
 {
     //
+    
+    use Sluggable;
+    use SluggableScopeHelpers;
+    
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'separator' => '-',
+                'includeTrashed' => true,
+            ]
+        ];
+    }
+    
     protected $fillable = [
         'category_id',
         'photo_id',
         'title',
         'body'
     ];
+    
+    protected $primaryKey = 'id';
     
     public function user(){
         
@@ -29,6 +50,17 @@ class Post extends Model
     public function category(){
         
         return $this->belongsTo('App\Category');
+        
+    }
+    
+    public function comments(){
+        
+        return $this->hasMany('App\Comment');
+        
+    }
+     public function photoPlaceholder(){
+        
+        return 'http://placehold.it/400x400';
         
     }
 }

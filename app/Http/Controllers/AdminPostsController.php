@@ -23,7 +23,7 @@ class AdminPostsController extends Controller
     {
         //
         
-        $posts = Post::all();
+        $posts = Post::paginate(2);
         
         return view('admin.posts.index', compact('posts'));
     }
@@ -36,7 +36,7 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        $categories = Category::lists('name', 'id')->all();
+        $categories = Category::pluck('name', 'id')->all();
         
         return view('admin.posts.create', compact('categories'));
     }
@@ -99,7 +99,7 @@ class AdminPostsController extends Controller
         //
         $post = Post::findOrFail($id);
         
-        $categories = Category::lists('name','id')->all();
+        $categories = Category::pluck('name','id')->all();
         
         return view('admin.posts.edit', compact('post', 'categories'));
     }
@@ -128,11 +128,11 @@ class AdminPostsController extends Controller
             
         }
         
-        $message = 'Post "'.Auth::user()->posts()->whereId($id)->first()->title.'" has been updated.';
+        $message = 'Post "'. Post::findOrFail($id)->title.'" has been updated.';
         
         Session::flash('updated_post', $message);
         
-        Auth::user()->posts()->whereId($id)->first()->update($input);
+        Post::findOrFail($id)->update($input);
         
         return redirect('/admin/posts');
     }
@@ -157,5 +157,15 @@ class AdminPostsController extends Controller
         $post->delete();
         
         return redirect('/admin/posts');
+    }
+    
+    public function post($slug){
+        
+        $post = Post::findBySlugOrFail($slug);
+        
+        $comments = $post->comments()->whereisActive(1)->get();
+        
+        return view('post', compact('post', 'comments'));
+        
     }
 }

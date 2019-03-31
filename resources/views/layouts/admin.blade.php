@@ -23,7 +23,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    
+    @yield('styles')
 
 
 
@@ -112,6 +113,14 @@
                             <li>
                                 <a href="{{route('admin.posts.create')}}">Create Post</a>
                             </li>
+                            
+                            <li>
+                                <a href="{{route('admin.comments.index')}}">All Comments</a>
+                            </li>
+                            
+                            <li>
+                                <a href="{{route('admin.comments.replies.index')}}">All Replies</a>
+                            </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -124,11 +133,6 @@
                             <li>
                                 <a href="{{route('admin.categories.index')}}">All Categories</a>
                             </li>
-
-                            <li>
-                                <a href="{{route('admin.categories.create')}}">Create Category</a>
-                            </li>
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -138,11 +142,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{route('admin.media.index')}}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{route('admin.media.create')}}">Upload Media</a>
                             </li>
 
                         </ul>
@@ -318,9 +322,7 @@
 <script src="{{asset('js/libs.js')}}"></script>
 
 
-@yield('footer')
-
-
+@yield('scripts')
 
 
 

@@ -8,7 +8,7 @@
     
     <div class="col-sm-3">
         
-        <img class="img-responsive" src="{{$post->photo->file}}" />
+        <img class="img-responsive" src="{{$post->photo ? '../../../' . $post->photo->file: 'http://placehold.it/400x400'}}" />
         
     </div>
     <div class="col-sm-9">
@@ -44,7 +44,7 @@
 
     <div class="form-group col-sm-6">
 
-            {!! Form::submit('Edit Post', ['class'=>'btn btn-primary btn-block']) !!}
+            {!! Form::submit('Update Post', ['class'=>'btn btn-primary btn-block']) !!}
 
         </div>
 
